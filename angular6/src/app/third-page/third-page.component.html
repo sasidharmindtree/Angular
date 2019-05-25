@@ -1,0 +1,25 @@
+
+<div class="table">
+  <table>
+    <tr class="tableHeading">
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Email</th>
+      <th>Age</th>
+      <th>Phone Number</th>
+      <th>Action</th>
+    </tr>
+    <tr *ngFor="let product of data; index as i">
+      <td>{{i + 1}}</td>
+      <td>{{product.username}}</td>
+      <td>{{product.createdDate  | date}}</td>
+      <td>{{product.email}}</td>
+      <td>{{product.age}}</td>
+      <td>{{product.phone}}</td>
+      <td>
+        <span data-title="Edit" bs-tooltip class="btn btn-info btn-sm" (click)= "Editview()"><i class="fa fa-pencil-square-o"></i></span>
+      </td>
+    </tr>
+  </table>
+</div>

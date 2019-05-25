@@ -1,0 +1,26 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+.fixed-header {
+  position: fixed;
+  z-index:999;
+  background: #0a2032;
+}
+.bgmcolor{
+  background: #0a2032; 
+}
+.textcenter{
+  margin-left: 400px;
+}
+@media screen and (max-width: 1241px){
+  .textcenter{
+    margin-left: 124px;
+  }
+}
+
+

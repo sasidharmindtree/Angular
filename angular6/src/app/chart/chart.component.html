@@ -1,0 +1,101 @@
+<p style="margin-top: 100px">
+  chart works!
+</p>
+
+
+<mat-tab-group>
+  <mat-tab label="First">
+    <button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+      {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+    </button>
+    <mat-horizontal-stepper [linear]="isLinear" #stepper>
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field>
+            <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done.
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button (click)="stepper.reset()">Reset</button>
+        </div>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </mat-tab>
+  <mat-tab label="Second"> 
+      <table matSort (matSortChange)="sortData($event)">
+          <tr>
+            <th mat-sort-header="name">Dessert (100g)</th>
+            <th mat-sort-header="calories">Calories</th>
+            <th mat-sort-header="fat">Fat (g)</th>
+            <th mat-sort-header="carbs">Carbs (g)</th>
+            <th mat-sort-header="protein">Protein (g)</th>
+          </tr>
+        
+          <tr *ngFor="let dessert of sortedData">
+            <td>{{dessert.name}}</td>
+            <td>{{dessert.calories}}</td>
+            <td>{{dessert.fat}}</td>
+            <td>{{dessert.carbs}}</td>
+            <td>{{dessert.protein}}</td>
+          </tr>
+        </table>
+        
+    
+  </mat-tab>
+  <mat-tab label="Third"> Content 3 </mat-tab>
+  <mat-tab label="Fours"> Content 4 </mat-tab>
+</mat-tab-group>
+
+
+Random third slide
+Third slide label
+Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+
+Previous
+Next
+Tcarousel-basic.html
+Ccarousel-basic.ts
+<ngb-carousel *ngIf="images">
+  <ng-template ngbSlide>
+    <img [src]="images[0]" alt="Random first slide">
+    <div class="carousel-caption">
+      <h3>First slide label</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[1]" alt="Random second slide">
+    <div class="carousel-caption">
+      <h3>Second slide label</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+  </ng-template>
+  <ng-template ngbSlide>
+    <img [src]="images[2]" alt="Random third slide">
+    <div class="carousel-caption">
+      <h3>Third slide label</h3>
+      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+    </div>
+  </ng-template>
+</ngb-carousel>
