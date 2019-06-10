@@ -14,6 +14,8 @@ import { PipeComponent } from './pipe/pipe.component';
 import { FileSizePipe } from './custom-pipe/custom-pipe.component';
 import { ReactformComponent } from './reactform/reactform.component';
 import { TemplateFormsComponent } from './template-forms/template-forms.component';
+import { LifeCycleComponent } from './life-cycle/life-cycle.component';
+import { ObservableComponent } from './observable/observable.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { TemplateFormsComponent } from './template-forms/template-forms.componen
     PipeComponent,
     FileSizePipe,
     ReactformComponent,
-    TemplateFormsComponent
+    TemplateFormsComponent,
+    LifeCycleComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
