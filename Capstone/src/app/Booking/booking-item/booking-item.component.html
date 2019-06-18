@@ -1,0 +1,11 @@
+
+<img src="../../../assets/images/download.jpg" style="height: 230px;width:280px;">
+<div >
+  <h3>{{bookItem.name}}</h3>
+  <h6>{{bookItem.location}}&nbsp;&nbsp;{{bookItem.city}}</h6>
+  <h6>{{bookItem.amenities[0]}} | {{bookItem.amenities[1]}} |  {{bookItem.amenities[2]}}</h6>
+  <h6><span><i class="material-icons">star</i>{{bookItem.averageRating}}</span>&nbsp;&nbsp;
+  {{bookItem.price| currency:'&#8377;'}}<br><b>per room</b></h6>
+  <button mat-button class="view">View Details</button>&nbsp;
+  <button mat-button class="book"> bookItem Now</button>
+</div>

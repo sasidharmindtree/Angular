@@ -1,0 +1,22 @@
+
+i{
+    font-size: 10px;
+}
+.book{
+    margin-bottom: 23px;
+    background-color: #a397dc;
+}
+.view{
+    margin-bottom: 23px;
+    background-color: #00c9ff;
+}
+b{
+    margin-left: 35px
+}
+.sort{
+    float: right;
+}
+.sorting{
+    padding:10px;
+    margin-bottom: 14px;
+}

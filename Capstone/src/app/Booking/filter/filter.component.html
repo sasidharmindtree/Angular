@@ -1,0 +1,48 @@
+<form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <h4>Filter</h4>
+    <mat-form-field>
+      <input matInput placeholder="Search" formControlName="search">
+    </mat-form-field>
+  </mat-card>
+  <mat-card>
+    <h4>Type</h4>
+    <mat-checkbox formControlName="hotel">Hotel</mat-checkbox>
+    <mat-checkbox formControlName="homestay">Room Stay</mat-checkbox>
+  </mat-card>
+  <mat-card>
+    <h4>Location</h4>
+    <!-- <mat-form-field>
+    <input matInput placeholder="Search"  required>
+  </mat-form-field> -->
+    <mat-checkbox>Gandhipuram</mat-checkbox>
+    <mat-checkbox>Rs Puram</mat-checkbox>
+    <mat-checkbox>Ganapathy</mat-checkbox>
+    <mat-checkbox>Peelamedu</mat-checkbox>
+  </mat-card>
+  <mat-card>
+    <h4>Rating</h4>
+    <div>
+      <span *ngFor="let item of [1,2,3,4]">
+        <i class="material-icons">start</i>
+      </span><a (click)="setRating(4)">&Up</a><br>
+    </div>
+    <span *ngFor="let item of [1,2,3]">
+      <i class="material-icons">start</i>
+    </span><a (click)="setRating(3)">&Up</a><br>
+    <span *ngFor="let item of [1,2]">
+      <i class="material-icons">start</i>
+    </span><a (click)="setRating(2)">&Up</a><br>
+    <span *ngFor="let item of [1]">
+      <i class="material-icons">start</i>
+    </span><a (click)="setRating(1)">&Up</a><br>
+  </mat-card>
+  <mat-card>
+    <h4>Price</h4>
+
+    <mat-slider min="1000" max="10000 " step="1" formControlName="minValue"></mat-slider><br>
+    <div>{{filterForm.value.minValue}}</div><br><br>
+    <div>10000</div>
+
+  </mat-card>
+</form>

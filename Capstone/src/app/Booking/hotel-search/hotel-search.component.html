@@ -1,0 +1,22 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <div fxLayout="row" fxLayoutGap="50px">
+      <mat-form-field>
+          <input matInput placeholder="Location" formControlName="location">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Choose a date" formControlName="date" >
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput placeholder="No of Guest" formControlName="capacity">
+              <span mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon><i class="material-icons" (click)="getAdd()">add</i></mat-icon>
+              </span>
+            </mat-form-field>
+             
+            <button mat-button>Search</button>
+  </div>
+  </form>
+   
+  

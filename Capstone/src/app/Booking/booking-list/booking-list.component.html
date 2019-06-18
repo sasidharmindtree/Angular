@@ -1,0 +1,14 @@
+<form [formGroup]="sortForm" (ngSubmit)="onSubmit()" *ngIf="bookingList">
+  <div class="sorting">
+    <span>{{bookingList.length}} Results</span>
+    <span class="sort">Sort By <mat-icon (click)="rateValue()">swap_vertical</mat-icon>
+      Rating By
+      <mat-icon (click)="priceValue()">swap_vertical</mat-icon>Price only
+      </span>
+  </div>
+</form>
+<div fxLayout="row wrap" fxLayoutGap="10px">
+  <div  *ngFor="let bookHotel of bookingList">
+    <app-booking-item fxFlex [bookItem]="bookHotel"  fxLayout="row"  style="background-color: #f2f2f2"></app-booking-item>
+  </div>
+</div>
