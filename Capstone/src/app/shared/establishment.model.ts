@@ -17,9 +17,10 @@ reviews: Review[];
 bookingList: Booking[];
 amenities: string[];
 owner: User;
-constructor(name: string, averagerating: number, price: number){
+constructor(name: string, averagerating: number, price: number, amenities: string[]) {
     this.name = name;
     this.averagerating = averagerating;
     this.price = price;
+    this.amenities = amenities;
 }
 }

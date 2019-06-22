@@ -17,6 +17,7 @@ constructor(private formBuilder: FormBuilder,
   count = 1;
   minDate;
   numbers = [];
+  guestObj = {};
   ngOnInit() {
     this.DateForm = this.formBuilder.group({
       date: [''],
@@ -27,6 +28,8 @@ constructor(private formBuilder: FormBuilder,
          console.log(this.bookingView);
     });
      this.DateForm.patchValue(this.estServices.getLocation());
+     this.guestObj = this.estServices.getLocation();
+     console.log(this.guestObj);
      this.minDate = new Date();
      this.minDate.setDate(this.minDate.getDate() + 1 );
      this.DateForm.get('todate').setValue(this.minDate);

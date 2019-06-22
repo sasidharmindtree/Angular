@@ -25,7 +25,7 @@ export class EstablishmentService {
   getFiter(fromData) {
   this.filterData = this.searchData.filter(word => word.price >= fromData.minValue);
       if (fromData.search !== '') {
-        this.filterData = this.filterData.filter(word => word.name === fromData.search);
+        this.filterData = this.filterData.filter(word => word.name.toLowerCase() === fromData.search.toLowerCase());
       }
       // if(!fromData.averagerating)
       this.filterData = this.filterData.filter(word => word.averagerating >= fromData.averagerating);
@@ -59,10 +59,11 @@ export class EstablishmentService {
 
 getSearch(search) {
   this.fromValue = search;
-  this.http.get(this.establishURL).subscribe((x: Establishment[]) => this.establishmentArray = x);
-  this.searchData = this.establishmentArray.filter(word => (word.city).trim() === (search.location).trim());
+  this.http.get(this.establishURL).subscribe((x: Establishment[]) => { this.establishmentArray = x;
+  this.searchData = this.establishmentArray.filter(word => (word.city).toLowerCase() === (search.location).toLowerCase());
   this.searchData = this.searchData.filter(word => word.capacity >= search.capacity);
   this.establishmentSubject.next(this.searchData);
+  });
 }
 getLocation() {
   return this.fromValue;

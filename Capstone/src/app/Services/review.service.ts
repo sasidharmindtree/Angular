@@ -10,11 +10,11 @@ import { Booking } from '../shared/booking.model';
 })
 export class ReviewService {
   bookHistory: Booking[] = [
-    {booked_by: new User('sasi'), establishment: new Establishment('Green city', 4, 5000), checkindate: new Date('6/19/2019'),
+    {booked_by: new User('sasi'), establishment: new Establishment('Green city', 4, 5000, ['Car', 'FreeWifi']), checkindate: new Date('6/19/2019'),
     checkoutdate: new Date('6/20/2019'), noofperson: 2, cost: 200},
-    {booked_by: new User('Reddy'), establishment: new Establishment('Green city', 3, 2000), checkindate: new Date('6/21/2019'),
+    {booked_by: new User('Reddy'), establishment: new Establishment('Green city', 3, 2000, ['Car', 'FreeWifi']), checkindate: new Date('6/21/2019'),
     checkoutdate: new Date('6/27/2019'), noofperson: 2, cost: 200},
-    {booked_by: new User('p'), establishment: new Establishment('Green city', 2, 4000), checkindate: new Date('6/21/2019'),
+    {booked_by: new User('p'), establishment: new Establishment('Green city', 2, 4000, ['Car']), checkindate: new Date('6/21/2019'),
     checkoutdate: new Date('6/22/2019'), noofperson: 2, cost : 200}
 ];
   constructor() { }

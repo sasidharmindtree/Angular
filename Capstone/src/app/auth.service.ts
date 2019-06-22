@@ -45,12 +45,12 @@ users: User[] = [
   }
   signUpData(user) {
     this.users.push(user);
-    let index =0;
+    let index = 0;
     for (const i in this.users) {
-          index++
-          user.id=index
+          index++;
+          user.id = index;
      }
-    
+
     console.log(this.users);
     return user;
 
@@ -61,7 +61,7 @@ users: User[] = [
   profileData(edit) {
     console.log(edit);
     for (const i in this.users) {
-      if (this.users[i].id == edit.id) {
+      if (this.users[i].id === edit.id) {
         this.users[i] = edit;
      }
     }

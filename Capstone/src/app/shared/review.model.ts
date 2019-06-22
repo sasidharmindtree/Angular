@@ -7,5 +7,5 @@ export class Review {
     reviewed_by: User;
     establishment: Establishment;
     reviewcontent: string;
-    
+
     }

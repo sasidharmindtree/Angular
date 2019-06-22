@@ -1,12 +1,12 @@
 <mat-tab-group>
-  <mat-tab label="PostBooking" >
+  <mat-tab label="PastBooking" >
      <div  fxLayout="row wrap" *ngFor="let list of checkIn" style="line-height: 0px">
       <img src="../../../assets/images/download.jpg" style="height: 230px;width:380px;">
       <div >
         <h3>{{list.booked_by.name}}</h3>
         <h3>{{list.establishment.name}}</h3>
         <h6>Location&nbsp;&nbsp;Banglore</h6>
-        <h6>Car Parking | Car Parking | Car Parking</h6>
+        <h6>{{list.establishment.amenities[0]}} | {{list.establishment.amenities[1]}}</h6>
         <h6><span><i class="material-icons">star</i>{{list.establishment.averagerating}}</span></h6>
         <h5>{{list.establishment.price | currency:'&#8377;'}} (1 Room {{list.noofperson}} Guest)</h5>
         <h5> From Date {{list.checkindate|date}} - To Date {{list.checkoutdate|date}}</h5>
@@ -24,7 +24,7 @@
               <h3>{{list.booked_by.name}}</h3>
               <h3>{{list.establishment.name}}</h3>
               <h6>Location&nbsp;&nbsp;Banglore</h6>
-              <h6>Car Parking | Car Parking | Car Parking</h6>
+              <h6>{{list.establishment.amenities[0]}} | {{list.establishment.amenities[1]}}</h6>
               <h6><span><i class="material-icons">star</i>{{list.establishment.averagerating}}</span></h6>
               <h5>{{list.establishment.price | currency:'&#8377;'}}(1 Room {{list.noofperson}} Guest)</h5>
               <h5> From Date {{list.checkindate|date}} - To Date {{list.checkoutdate|date}}</h5>
