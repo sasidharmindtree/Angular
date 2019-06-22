@@ -4,7 +4,8 @@ import { Establishment } from './establishment.model';
 export class Review {
     id: number;
     rating: number;
-    reviewedBy:User;
-    establishment:Establishment;
+    reviewed_by: User;
+    establishment: Establishment;
     reviewcontent: string;
+    
     }

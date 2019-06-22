@@ -1,13 +1,15 @@
-<div class="bgm">
+<div fxLayout="row" fxLayoutAlign="space-around">
+  <span fxLayout="column">
+      <img src="../../../assets/images/profile.png"  style="width: 265px;margin-top: 30px;"/>
+      <span class="fnt">{{profileForm.value.name}}</span>
+  </span>
+  
   <mat-card>
-    <!-- Title of an Card -->
     <mat-card-title>
-        Sign Up
+       Profile Edit
     </mat-card-title>
-
-    <!-- Actual content starts from here -->
     <mat-card-content>
-        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
             <div class="example-container">
                 <mat-form-field>
                     <input matInput placeholder="Enter User Name" formControlName="name" required>
@@ -47,12 +49,12 @@
                         <p>Role</p>
                         <mat-radio-group aria-label="Select an option" formControlName="role">
                             <mat-radio-button value="3">User</mat-radio-button>
-                            <mat-radio-button value="2">Marchent</mat-radio-button>
+                            <mat-radio-button value="2">Marchenty</mat-radio-button>
                           </mat-radio-group>
-                <button mat-button type="submit">Sign Up</button>
+                <button mat-button>Update</button>
             </div>
 
         </form>
     </mat-card-content>
-</mat-card>
+  </mat-card>
 </div>

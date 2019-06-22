@@ -1,7 +1,9 @@
-.first {
-  margin-bottom:25px;
+.b1class{
+  background-color: #a397dc;
 }
-button{
-    float: right;
-    background-color: #a397dc;
+.bclass{
+  background-color: #bebbcc
+}
+.signclass{
+  background-color: #a397dc;
 }

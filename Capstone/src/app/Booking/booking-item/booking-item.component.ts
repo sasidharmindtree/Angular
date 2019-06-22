@@ -1,4 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-booking-item',
@@ -7,10 +8,12 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class BookingItemComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   @Input() bookItem;
 
   ngOnInit() {
   }
-
+  viewDetails(id) {
+    console.log(id);
+  }
 }

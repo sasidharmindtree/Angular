@@ -24,7 +24,19 @@
     margin-top: 20px
 }
 mat-card{
-  width: 50%;
+  width: 40%;
   margin:auto;
-  margin-top: 30px;
+  /* margin-top: 30px; */
+}
+.bgm{
+  background-image: url("../../../assets/images/login.jpeg");
+  background-color: #cccccc; /* Used if the image is unavailable */
+  height: 500px; /* You must set a specified height */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+}
+form{
+  width: 181%;
+    margin-left: 50px;
 }

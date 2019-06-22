@@ -1,10 +1,9 @@
-
-<!-- <app-sign-in></app-sign-in>
-<app-sign-up></app-sign-up> -->
-<div fxLayout="row" fxLayoutGap="10px">
-  <app-filter></app-filter>
-  <div fxLayout="column">
-      <app-search></app-search>
-      <app-booking-list></app-booking-list>
-  </div>
-</div>
+<mat-toolbar>
+    <span><i style="color: #6148ce;">Book My Room</i></span>
+    <span  [ngStyle]="{'margin-left':isLoggedIn ? '60%' : '80%' }">
+        <button   mat-button class="b1class" routerLink="/profile" *ngIf="isLoggedIn">My Profile</button>&nbsp;
+        <button mat-button  class="signclass" routerLink="/signin"  *ngIf="!isLoggedIn">Signin</button>&nbsp;
+        <button   mat-button class="b1class" routerLink="/history" *ngIf="isLoggedIn">My Booking</button>&nbsp;&nbsp;
+        <button   mat-button  class="bclass" *ngIf="isLoggedIn" (click)="auth.logout()">Logout</button>
+    </span>  
+</mat-toolbar>

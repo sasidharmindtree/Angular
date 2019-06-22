@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import{ EstablishmentService} from '../../Services/establishment.service'
-import { FormBuilder, FormGroup} from '@angular/forms'
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { EstablishmentService} from '../../Services/establishment.service';
+import { FormBuilder, FormGroup} from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -8,46 +9,48 @@ import { FormBuilder, FormGroup} from '@angular/forms'
   templateUrl: './booking-list.component.html',
   styleUrls: ['./booking-list.component.css']
 })
-export class BookingListComponent implements OnInit {
+export class BookingListComponent implements OnInit, OnDestroy {
 
-  constructor( private estServices:EstablishmentService,private formBuilder: FormBuilder) { }
-  bookingList=[];
+  constructor( private estServices: EstablishmentService, private formBuilder: FormBuilder) { }
+  bookingList = [];
   sortForm: FormGroup;
+  subscription: Subscription;
   ngOnInit() {
     // .subscribe(data =>this.bookingList=data);
-    this.estServices.establishmentSubject.subscribe(data=>{
-      this.bookingList=data
-      console.log(this.bookingList)
+    this.subscription = this.estServices.establishmentSubject.subscribe(data => {
+      this.bookingList = data;
+      console.log(this.bookingList);
     });
     this.estServices.getEstablishment();
-    //sort
+    // sort
     this.sortForm = this.formBuilder.group({
-      averageRating: [1],
+      averagerating: [1],
       price: [1000],
-     
     });
     this.sortForm.valueChanges.subscribe(fromData => {
-      this.estServices.getSort(fromData)
-    })
+      this.estServices.getSort(fromData);
+    });
   }
-  ngOnDestroy(){
-    this.estServices.establishmentSubject.unsubscribe()
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
-  rateValue(){
-    console.log(this.sortForm.get('averageRating').value)
-    this.sortForm.get('price').setValue(0)
-    let num = this.sortForm.get('averageRating').value
-    if(num === 0 || num === 2)
-      this.sortForm.get('averageRating').setValue(1)
-    else
-    this.sortForm.get('averageRating').setValue(2)
+  rateValue() {
+    console.log(this.sortForm.get('averagerating').value);
+    this.sortForm.get('price').setValue(0);
+    const num = this.sortForm.get('averagerating').value;
+    if (num === 0 || num === 2) {
+      this.sortForm.get('averagerating').setValue(1);
+    } else {
+      this.sortForm.get('averagerating').setValue(2);
+    }
   }
-  priceValue(){
-    this.sortForm.get('averageRating').setValue(0)
-    let num = this.sortForm.get('price').value
-    if(num === 0 || num === 2)
-      this.sortForm.get('price').setValue(1)
-    else
-    this.sortForm.get('price').setValue(2)
+  priceValue() {
+    this.sortForm.get('averagerating').setValue(0);
+    const num = this.sortForm.get('price').value;
+    if (num === 0 || num === 2) {
+      this.sortForm.get('price').setValue(1);
+    } else {
+      this.sortForm.get('price').setValue(2);
+    }
   }
 }

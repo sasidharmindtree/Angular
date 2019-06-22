@@ -4,42 +4,45 @@ import {User} from '../../shared/user.model';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
+
 @Component({
-  selector: 'app-sign-up',
-  templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.css']
+  selector: 'app-profile',
+  templateUrl: './profile.component.html',
+  styleUrls: ['./profile.component.css']
 })
-export class SignUpComponent implements OnInit {
-  signupForm: FormGroup;
+export class ProfileComponent implements OnInit {
+  profileForm: FormGroup;
   submitted = false;
   obj: User;
   hide = true;
   constructor(private formBuilder: FormBuilder, private router: Router, private auth: AuthService) { }
 
   ngOnInit() {
-      this.signupForm = this.formBuilder.group({
+      this.profileForm = this.formBuilder.group({
         name: ['', Validators.required],
         phoneNumber: ['', [Validators.required, Validators.required, Validators.pattern('[0-9]{10}')]],
         email: ['', [Validators.required, Validators.email]],
         password: ['',
-        [Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
-        role: ['3', Validators.required],
+        [Validators.required,
+          Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]],
+        role: ['', Validators.required],
         id: []
       });
+      this.profileForm.patchValue(this.auth.getprofile());
   }
-
   // convenience getter for easy access to form fields
-  get f() { return this.signupForm.controls; }
+  get f() { return this.profileForm.controls; }
 
     onSubmit() {
-    console.log(this.signupForm);
+    console.log(this.profileForm);
       this.submitted = true;
-      this.obj = this.signupForm.value;
+      this.obj = this.profileForm.value;
       // stop here if form is invalid
-      if (this.signupForm.invalid) {
+      if (this.profileForm.invalid) {
           return;
       }
-     this.auth.signUpData(this.signupForm.value);
-      this.router.navigate(['/signin']);
+     this.auth.profileData(this.profileForm.value);
+      this.router.navigate(['/search']);
   }
+
 }

@@ -40,9 +40,12 @@
   <mat-card>
     <h4>Price</h4>
 
-    <mat-slider min="1000" max="10000 " step="1" formControlName="minValue"></mat-slider><br>
-    <div>{{filterForm.value.minValue}}</div><br><br>
-    <div>10000</div>
+    <mat-slider min="1000" max="10000" step="100" formControlName="minValue"></mat-slider><br>
+    <div fxLayout="row">
+      <div>{{filterForm.value.minValue}}</div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <div>10000</div>
+    </div>
+   
 
   </mat-card>
 </form>

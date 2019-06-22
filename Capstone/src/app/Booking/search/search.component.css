@@ -1,8 +1,20 @@
-div{
-    margin-top: 20px;
-}
+
 button{
     background-color: #a397dc;
     height: 37px;
     margin-top: 11px;
+}
+
+.search{
+    width:90%; margin: auto;
+    padding: 180px 0%;
+    
+}
+.bgm{
+    background-image: url("../../../assets/images/search.jpg");
+    background-color: #cccccc; /* Used if the image is unavailable */
+    height: 500px; /* You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
 }
